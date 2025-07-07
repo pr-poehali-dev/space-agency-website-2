@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,35 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-roboto;
+  }
+}
+
+@layer components {
+  .neomorphic {
+    @apply shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_1px_0_0_rgba(255,255,255,0.1),0_0_0_1px_rgba(255,255,255,0.05)] bg-gradient-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-md;
+  }
+
+  .neomorphic-inset {
+    @apply shadow-[inset_0_2px_4px_0_rgba(0,0,0,0.5),inset_0_-2px_4px_0_rgba(255,255,255,0.05)] bg-gradient-to-b from-slate-900/50 to-slate-800/50;
+  }
+
+  .holographic {
+    @apply bg-gradient-to-r from-blue-500 to-purple-500 relative overflow-hidden;
+  }
+
+  .holographic::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
